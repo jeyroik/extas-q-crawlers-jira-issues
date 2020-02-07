@@ -56,7 +56,8 @@ class CrawlerJiraIssues extends Crawler
 
             $output->writeln([
                 'Total issues: <info>' . $issuesTotal . '</info>',
-                'Done issues: <info>' . $issuesDone . '</info>'
+                'Done issues: <info>' . $issuesDone . '</info>',
+                'Rate: <info>' . (($issuesDone + $issuesTotal)/$issuesTotal) . '</info>'
             ]);
 
             $this->saveRate($issuesTotal, $issuesDone, $output);
@@ -82,17 +83,22 @@ class CrawlerJiraIssues extends Crawler
          */
         $repo = SystemContainer::getItem(IJiraIssuesRateRepository::class);
         $exist = $repo->one([IJiraIssuesRate::FIELD__MONTH => date('Ym')]);
+        $rate = round(($issuesTotal + $issuesDone)/$issuesTotal, 2);
 
         if ($exist) {
-            $exist->setRate((float)$issuesTotal)->setRateDone($issuesDone)->setTimestamp(time());
+            $exist->setRate($rate)
+                ->setCountTotal($issuesTotal)
+                ->setCountDone($issuesDone)
+                ->setTimestamp(time());
             $repo->update($exist);
             $output->writeln(['<info>Rates updated</info>']);
         } else {
             $repo->create(new JiraIssuesRate([
                 JiraIssuesRate::FIELD__MONTH => date('Ym'),
                 JiraIssuesRate::FIELD__TIMESTAMP => time(),
-                JiraIssuesRate::FIELD__RATE => (float) $issuesTotal,
-                JiraIssuesRate::FIELD__RATE_DONE => $issuesDone
+                JiraIssuesRate::FIELD__RATE => $rate,
+                JiraIssuesRate::FIELD__COUNT_TOTAL => $issuesTotal,
+                JiraIssuesRate::FIELD__COUNT_DONE => $issuesDone
             ]));
             $output->writeln(['<info>Rates created</info>']);
         }

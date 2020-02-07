@@ -22,19 +22,39 @@ class JiraIssuesRate extends Item implements IJiraIssuesRate
     /**
      * @return int
      */
-    public function getRateDone(): int
+    public function getCountDone(): int
     {
-        return $this->config[static::FIELD__RATE_DONE] ?? 0;
+        return $this->config[static::FIELD__COUNT_DONE] ?? 0;
     }
 
     /**
-     * @param int $rateDone
+     * @return int
+     */
+    public function getCountTotal(): int
+    {
+        return $this->config[static::FIELD__COUNT_TOTAL] ?? 0;
+    }
+
+    /**
+     * @param int $countDone
      *
      * @return IJiraIssuesRate
      */
-    public function setRateDone(int $rateDone): IJiraIssuesRate
+    public function setCountDone(int $countDone): IJiraIssuesRate
     {
-        $this->config[static::FIELD__RATE_DONE] = $rateDone;
+        $this->config[static::FIELD__COUNT_DONE] = $countDone;
+
+        return $this;
+    }
+
+    /**
+     * @param int $countTotal
+     *
+     * @return IJiraIssuesRate
+     */
+    public function setCountTotal(int $countTotal): IJiraIssuesRate
+    {
+        $this->config[static::FIELD__COUNT_TOTAL] = $countTotal;
 
         return $this;
     }

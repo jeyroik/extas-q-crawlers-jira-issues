@@ -16,17 +16,30 @@ interface IJiraIssuesRate extends IItem, IHasMonth, IHasTimestamp, IHasRate
 {
     const SUBJECT = 'extas.quality.crawler.jira.issues';
 
-    const FIELD__RATE_DONE = 'rate_done';
+    const FIELD__COUNT_TOTAL = 'count_total';
+    const FIELD__COUNT_DONE = 'count_done';
 
     /**
      * @return int
      */
-    public function getRateDone(): int;
+    public function getCountDone(): int;
 
     /**
-     * @param int $rateDone
+     * @return int
+     */
+    public function getCountTotal(): int;
+
+    /**
+     * @param int $countDone
      *
      * @return IJiraIssuesRate
      */
-    public function setRateDone(int $rateDone): IJiraIssuesRate;
+    public function setCountDone(int $countDone): IJiraIssuesRate;
+
+    /**
+     * @param int $countTotal
+     *
+     * @return IJiraIssuesRate
+     */
+    public function setCountTotal(int $countTotal): IJiraIssuesRate;
 }
