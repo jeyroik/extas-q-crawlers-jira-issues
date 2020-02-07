@@ -1,0 +1,14 @@
+{
+  "name": "jeyroik/extas-q-crawlers-jira-issues",
+  "description": "Jira issues crawler package",
+  "require": {
+    "guzzlehttp/guzzle": "^6.3",
+    "jeyroik/extas-installer": "*",
+    "jeyroik/extas-q-crawlers-jira": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "extas\\": "src/"
+    }
+  }
+}
