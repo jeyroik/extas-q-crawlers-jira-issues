@@ -29,6 +29,14 @@ class JiraIssuesConfig extends Item implements IJiraIssuesConfig
     }
 
     /**
+     * @return int
+     */
+    public function getLimit(): int
+    {
+        return $this->config[static::FIELD__LIMIT] ?? 0;
+    }
+
+    /**
      * @return string
      */
     protected function getSubjectForExtension(): string

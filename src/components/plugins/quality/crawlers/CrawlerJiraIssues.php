@@ -128,7 +128,7 @@ class CrawlerJiraIssues extends Crawler
             $jql->projectKey($keys);
         }
 
-        $jql->returnFields([IJiraIssue::FIELD__STATUS]);
+        $jql->returnFields([IJiraIssue::FIELD__STATUS])->limit($config->getLimit());
 
         return $jql;
     }

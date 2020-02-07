@@ -14,6 +14,7 @@ interface IJiraIssuesConfig
     const FIELD__ISSUES = 'issues';
     const FIELD__PROJECTS = 'projects';
     const FIELD__DONE_TYPES = 'done';
+    const FIELD__LIMIT = 'limit';
 
     /**
      * @return string[]
@@ -24,4 +25,9 @@ interface IJiraIssuesConfig
      * @return string[]
      */
     public function getDoneTypes(): array;
+
+    /**
+     * @return int
+     */
+    public function getLimit(): int;
 }
