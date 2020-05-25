@@ -12,9 +12,8 @@ use extas\interfaces\quality\crawlers\jira\issues\rates\IJiraIssuesRateRepositor
  */
 class JiraIssuesRateRepository extends Repository implements IJiraIssuesRateRepository
 {
-    protected $idAs = '';
-    protected $scope = 'extas';
-    protected $pk = JiraIssuesRate::FIELD__MONTH;
-    protected $name = 'jira_issues_rates';
-    protected $itemClass = JiraIssuesRate::class;
+    protected string $scope = 'extas';
+    protected string $pk = JiraIssuesRate::FIELD__MONTH;
+    protected string $name = 'jira_issues_rates';
+    protected string $itemClass = JiraIssuesRate::class;
 }

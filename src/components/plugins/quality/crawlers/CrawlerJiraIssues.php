@@ -26,8 +26,8 @@ class CrawlerJiraIssues extends Crawler
 {
     use TJiraConfiguration;
 
-    protected $title = '[Jira] Issues rates';
-    protected $description = 'Calculate total and done issues rates.';
+    protected string $title = '[Jira] Issues rates';
+    protected string $description = 'Calculate total and done issues rates.';
 
     /**
      * @param OutputInterface $output

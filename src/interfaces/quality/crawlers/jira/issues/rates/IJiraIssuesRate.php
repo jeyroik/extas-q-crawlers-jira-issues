@@ -14,10 +14,10 @@ use extas\interfaces\quality\crawlers\jira\IHasTimestamp;
  */
 interface IJiraIssuesRate extends IItem, IHasMonth, IHasTimestamp, IHasRate
 {
-    const SUBJECT = 'extas.quality.crawler.jira.issues';
+    public const SUBJECT = 'extas.quality.crawler.jira.issues';
 
-    const FIELD__COUNT_TOTAL = 'count_total';
-    const FIELD__COUNT_DONE = 'count_done';
+    public const FIELD__COUNT_TOTAL = 'count_total';
+    public const FIELD__COUNT_DONE = 'count_done';
 
     /**
      * @return int

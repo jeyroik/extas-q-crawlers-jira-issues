@@ -9,12 +9,12 @@ namespace extas\interfaces\quality\crawlers\jira\issues;
  */
 interface IJiraIssuesConfig
 {
-    const SUBJECT = 'extas.quality.crawler.jira.issues.config';
+    public const SUBJECT = 'extas.quality.crawler.jira.issues.config';
 
-    const FIELD__ISSUES = 'issues';
-    const FIELD__PROJECTS = 'projects';
-    const FIELD__DONE_TYPES = 'done';
-    const FIELD__LIMIT = 'limit';
+    public const FIELD__ISSUES = 'issues';
+    public const FIELD__PROJECTS = 'projects';
+    public const FIELD__DONE_TYPES = 'done';
+    public const FIELD__LIMIT = 'limit';
 
     /**
      * @return string[]

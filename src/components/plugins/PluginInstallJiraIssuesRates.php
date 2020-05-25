@@ -12,9 +12,9 @@ use extas\interfaces\quality\crawlers\jira\issues\rates\IJiraIssuesRateRepositor
  */
 class PluginInstallJiraIssuesRates extends PluginInstallDefault
 {
-    protected $selfItemClass = JiraIssuesRate::class;
-    protected $selfName = 'jira issues rate';
-    protected $selfSection = 'jira_issues_rates';
-    protected $selfRepositoryClass = IJiraIssuesRateRepository::class;
-    protected $selfUID = JiraIssuesRate::FIELD__MONTH;
+    protected string $selfItemClass = JiraIssuesRate::class;
+    protected string $selfName = 'jira issues rate';
+    protected string $selfSection = 'jira_issues_rates';
+    protected string $selfRepositoryClass = IJiraIssuesRateRepository::class;
+    protected string $selfUID = JiraIssuesRate::FIELD__MONTH;
 }
