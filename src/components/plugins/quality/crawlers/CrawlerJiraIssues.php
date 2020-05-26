@@ -7,7 +7,6 @@ use extas\components\quality\crawlers\jira\issues\rates\JiraIssuesRate;
 use extas\components\quality\crawlers\jira\JiraClient;
 use extas\components\quality\crawlers\jira\JiraSearchJQL;
 use extas\components\quality\crawlers\jira\TJiraConfiguration;
-use extas\components\SystemContainer;
 use extas\interfaces\quality\crawlers\ICrawler;
 use extas\interfaces\quality\crawlers\jira\IJiraIssue;
 use extas\interfaces\quality\crawlers\jira\IJiraSearchJQL;
@@ -18,6 +17,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class CrawlerJiraIssues
+ *
+ * @method jiraIssuesRateRepository()
  *
  * @package extas\components\plugins\quality\crawlers
  * @author jeyroik@gmail.com
@@ -82,7 +83,7 @@ class CrawlerJiraIssues extends Crawler
          * @var $exist IJiraIssuesRate
          */
         $month = (int) date('Ym');
-        $repo = SystemContainer::getItem(IJiraIssuesRateRepository::class);
+        $repo = $this->jiraIssuesRateRepository();
         $exist = $repo->one([IJiraIssuesRate::FIELD__MONTH => $month]);
         $rate = round(($issuesTotal + $issuesDone)/$issuesTotal, 2);
 
